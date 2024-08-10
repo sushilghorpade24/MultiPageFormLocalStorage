@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .Form-control {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        fieldset {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 15px;
+            background-color: #e0f7fa;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+
+        legend {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00796b;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #004d40;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 2px solid #00796b;
+            border-radius: 10px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-top: 10px;
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #004d40;
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 121, 107, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="Form-control">
+        <fieldset>
+            <legend>Form 1</legend>
+            <label for="name">Name:</label>
+            <input type="text" placeholder="Enter Your Name" id="name">
+            <button onclick="openNewPage()">Next</button>
+        </fieldset>
+    </div>
+
+    <script>
+        function openNewPage() {
+            var name = document.getElementById("name").value;
+            if (name === "") {
+                alert("Please Enter Your Name");
+            } else {
+                localStorage.setItem("Name", name);
+                window.location.href = 'screen2.html'; // Replace with the actual path to your new page
+            }
+        }
+    </script>
+</body>
+</html>

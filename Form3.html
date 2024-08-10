@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen 3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        fieldset {
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        legend {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00796b;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #004d40;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 2px solid #00796b;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 10px 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #004d40;
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 121, 107, 0.5);
+        }
+    </style>
+
+
+</head>
+<body>
+    <div class="form">
+        <fieldset>
+            <legend>Screen 3</legend>
+            <label for="comment">Comment:</label>
+            <input type="text" id="comment" placeholder="Enter your comment"/>
+            <button type="button" onclick="onSubmit()">Submit</button> 
+            <button type="button" onclick="goPrevious()">Previous</button><!-- Ensure button type is 'button' -->
+        </fieldset>
+    </div>
+    
+    <script>
+        function onSubmit() {
+            var comment = document.getElementById("comment").value; // Get the comment value inside the function
+            
+            if (comment === "") {
+                alert("Please Enter Your Comment");
+            } else {
+                localStorage.setItem("Comment", comment);
+                
+                // Retrieve the stored data
+                let Name = localStorage.getItem("Name");
+                let email = localStorage.getItem("Email");
+                let Gender = localStorage.getItem("Gender");
+                let Subscribe_to_newsletter = localStorage.getItem("Subscribe_to_newsletter"); // Corrected key
+
+                // Display the retrieved data in a confirmation dialog
+                confirm(`Name: ${Name}\nEmail: ${email}\nGender: ${Gender}\nSubscribe to newsletter: ${Subscribe_to_newsletter}\nComment: ${comment}`);
+            }
+        }
+
+        function goPrevious() {
+            window.location.href = 'screen2.html';
+        }
+    </script>
+</body>
+</html>

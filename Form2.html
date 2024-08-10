@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-control1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        fieldset {
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        legend {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input[type="email"],
+        input[type="text"],
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin: 5px 0;
+        }
+
+        input[type="email"],
+        input[type="text"] {
+            width: calc(100% - 22px); 
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            margin: 10px 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-control1">
+        <fieldset>
+            <legend>Form 2</legend>
+            <label>Email</label>
+            <input type="email" placeholder="Enter mail" id="mail">
+            <br>
+            <label>Select Gender:</label>
+            <br>
+            Male<input type="radio" id="male" name="gender" value="Male">
+            Female<input type="radio" id="female" name="gender" value="Female">
+            Other<input type="radio" id="other" name="gender" value="Other">
+            <br>
+            <input type="checkbox" id="check">
+            <label for="check">Subscribe to newsletter</label>
+            <br>
+            <button onclick="openNewPage2()">Next</button>
+            <button onclick="openPreviousPage()">Previous</button>
+        </fieldset>
+    </div>
+
+    <script>
+        function openNewPage2() {
+            const email = document.getElementById("mail").value;
+            const gender = document.querySelector('input[name="gender"]:checked');
+            const checkbox = document.getElementById("check").checked ? "Yes" : "No";
+
+            if (email === "" || !gender) {
+                alert("Please fill all details");
+            } else {
+                // Store values in localStorage
+                localStorage.setItem("Email", email);
+                localStorage.setItem("Gender", gender.value);
+                localStorage.setItem("Subscribe_to_newsletter", checkbox);
+
+                // Redirect to the next page
+                window.location.href = 'screen3.html';
+            }
+        }
+
+        function openPreviousPage() {
+            window.location.href = 'screen.html';
+        }
+    </script>
+</body>
+
+</html>
